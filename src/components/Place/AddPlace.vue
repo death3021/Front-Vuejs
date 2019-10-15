@@ -44,8 +44,6 @@
                 const path = 'http://localhost:8000/api/1.0/establishments/place/'
                 console.log(this.form)
                 axios.post( path, this.form ).then(( response ) => {
-                    this.form.establishment_name = response.data.establishment_place
-                    this.form.place_category = response.data.place_category
                     alert("se agrego el lugar al establesimiento")
                     this.$router.push('/places')
                 })

@@ -35,9 +35,6 @@
                 event.preventDefault()
                 const path = 'http://localhost:8000/api/1.0/establishments/establishment/'
                 axios.post( path, this.form ).then(( response ) => {
-                    this.form.establishment_name = response.data.establishment_name
-                    this.form.establishment_location = response.data.establishment_location
-                    this.form.total_quota = response.data.total_quota
                     alert("se agrego")
                     this.$router.push('/establishments') 
                 })
