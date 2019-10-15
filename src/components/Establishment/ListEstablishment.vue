@@ -4,8 +4,10 @@
 			hola
 		</th>
 		<tbody>
-			<tr v-for="establishment in establishments"></tr>
-			<td>{{establishment.establishment_name}}</td>
+			<tr v-for="(item, index) in establishments" :key="index"> 
+			<td>{{item.establishment_name}}</td>
+			<td>{{item.establishment_location}}</td>
+			</tr>
 		</tbody>
 	</table>
 </template>
@@ -27,11 +29,12 @@
 		methods : {
 			getEstablishments(){
 				const path = 'http://localhost:8000/api/1.0/establishments/establishment/'
-				axios.get(path).then((response) => {
+				axios.get( path ).then(( response ) => {
+					console.log( response.data )
 					this.establishments = response.data
 				})
-				.catch((error) => {
-					console.log(error);
+				.catch(( error ) => {
+					console.log( error );
 				})
 			}
 		},
